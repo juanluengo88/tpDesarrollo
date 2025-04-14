@@ -1,14 +1,16 @@
 class Notificacion {
-    constructor({ mensaje, usuario, fechaAlta, leida = false, fechaLeida = null }) {
-      this.mensaje = mensaje;
-      this.usuario = usuario;
-      this.fechaAlta = fechaAlta;
-      this.leida = leida;
-      this.fechaLeida = fechaLeida;
-    }
-  
-    marcarComoLeida() {}
+  constructor({ mensaje, usuario, fechaAlta, leida = false, fechaLeida = null }) {
+    this.mensaje = mensaje;
+    this.usuario = usuario;
+    this.fechaAlta = fechaAlta;
+    this.leida = leida;
+    this.fechaLeida = fechaLeida;
   }
-  
-  export default Notificacion;
-  
+
+  marcarComoLeida() {
+    this.leida = true;
+    this.fechaLeida = new Date();
+  }
+}
+
+export default Notificacion;
