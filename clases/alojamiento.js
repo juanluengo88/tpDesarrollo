@@ -28,9 +28,17 @@ class Alojamiento {
 
     return true;
   }
-  tuPrecioEstaDentroDe(valorMinimo, valorMaximo) {}
-  tenesCaracteristica(caracteristica) {}
-  puedenAlojarse(cantHuespedes) {}
+  tuPrecioEstaDentroDe(valorMinimo, valorMaximo) {
+    return this.precioPorNoche <= valorMaximo && this.precioPorNoche >= valorMinimo;
+  }
+
+  tenesCaracteristica(caracteristica) {
+    return this.caracteristicas.includes(caracteristica);
+  }
+
+  puedenAlojarse(cantHuespedes) {
+    return this.cantHuespedesMax >= cantHuespedes;
+  }
 }
 
 export default Alojamiento;

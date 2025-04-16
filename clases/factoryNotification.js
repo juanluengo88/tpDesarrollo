@@ -1,10 +1,11 @@
 class FactoryNotificacion {
-  crearSegunReserva(reserva) {
+  static crearSegunReserva(reserva) {
     const estado = reserva.estado;
     const anfitrion = reserva.alojamiento.anfitrion;
     const huesped = reserva.huespedReservador;
     const alojamiento = reserva.alojamiento;
     const diasReserva = Math.ceil(reserva.rangoFechas.fechaFin - reserva.rangoFechas.fechaInicio / (1000 * 60 * 60 * 24));
+    const motivo=reserva.motivo;
 
     var mensaje = "";
     var usuario = null;
@@ -19,7 +20,7 @@ class FactoryNotificacion {
         usuario = huesped;
         break;
       case EstadoReserva.CANCELADA:
-        mensaje = `reserva de ${alojamiento.nombre} cancelada.`;
+        mensaje = `reserva de ${alojamiento.nombre} cancelada por ${motivo} .`;
         usuario = anfitrion;
         break;
     }
